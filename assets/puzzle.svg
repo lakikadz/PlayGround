@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="مشهد صحراوي ليلي: قمر كبير فوق كثبان رملية وبحيرة واحة ونخيل">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#030618"/>
+      <stop offset="0.42" stop-color="#101a4a"/>
+      <stop offset="0.72" stop-color="#3b2a63"/>
+      <stop offset="0.88" stop-color="#8a4d63"/>
+      <stop offset="1" stop-color="#d07a63"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff4d6" stop-opacity="0.95"/>
+      <stop offset="0.22" stop-color="#ffeec2" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#ffd9a0" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#ffcf95" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonBody" cx="0.38" cy="0.34" r="0.7">
+      <stop offset="0" stop-color="#fffdf2"/>
+      <stop offset="0.55" stop-color="#f7e6bd"/>
+      <stop offset="0.82" stop-color="#e8c992"/>
+      <stop offset="1" stop-color="#cda778"/>
+    </radialGradient>
+    <linearGradient id="duneBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5d4270"/>
+      <stop offset="0.45" stop-color="#33294f"/>
+      <stop offset="1" stop-color="#181633"/>
+    </linearGradient>
+    <linearGradient id="duneMid" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#7a4f65"/>
+      <stop offset="0.35" stop-color="#43304f"/>
+      <stop offset="1" stop-color="#1d1833"/>
+    </linearGradient>
+    <linearGradient id="duneFront" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#a26563"/>
+      <stop offset="0.3" stop-color="#5c3a55"/>
+      <stop offset="1" stop-color="#241a35"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7c88e" stop-opacity="0.75"/>
+      <stop offset="0.18" stop-color="#c98f78" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#33436a" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#141c38" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="rimLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd8a0" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffd8a0" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffd8a0" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#02040e" stop-opacity="0.62"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="bloom" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g fill="#ffffff">
+    <circle cx="92" cy="88" r="1.9" opacity="0.9"/>
+    <circle cx="168" cy="142" r="1.2" opacity="0.65"/>
+    <circle cx="246" cy="58" r="1.5" opacity="0.8"/>
+    <circle cx="312" cy="196" r="1" opacity="0.5"/>
+    <circle cx="386" cy="102" r="2.1" opacity="0.9"/>
+    <circle cx="452" cy="42" r="1.2" opacity="0.6"/>
+    <circle cx="520" cy="158" r="1.7" opacity="0.8"/>
+    <circle cx="598" cy="88" r="1" opacity="0.55"/>
+    <circle cx="668" cy="212" r="1.4" opacity="0.7"/>
+    <circle cx="736" cy="66" r="1.8" opacity="0.85"/>
+    <circle cx="962" cy="122" r="1.3" opacity="0.7"/>
+    <circle cx="1044" cy="58" r="1.9" opacity="0.9"/>
+    <circle cx="1128" cy="168" r="1.2" opacity="0.6"/>
+    <circle cx="1180" cy="92" r="1.5" opacity="0.75"/>
+    <circle cx="1086" cy="242" r="1" opacity="0.5"/>
+    <circle cx="928" cy="34" r="1.1" opacity="0.6"/>
+    <circle cx="286" cy="292" r="1.1" opacity="0.5"/>
+    <circle cx="58" cy="246" r="1.4" opacity="0.7"/>
+    <circle cx="560" cy="284" r="1" opacity="0.45"/>
+    <circle cx="700" cy="322" r="1.3" opacity="0.55"/>
+    <circle cx="104" cy="368" r="1" opacity="0.45"/>
+    <circle cx="1150" cy="356" r="1.2" opacity="0.5"/>
+    <circle cx="830" cy="150" r="1.1" opacity="0.6"/>
+    <circle cx="470" cy="238" r="1.6" opacity="0.75"/>
+    <circle cx="210" cy="220" r="0.9" opacity="0.4"/>
+    <circle cx="1000" cy="300" r="1.4" opacity="0.55"/>
+  </g>
+
+  <!-- shooting star -->
+  <g opacity="0.75">
+    <line x1="230" y1="120" x2="322" y2="160" stroke="#ffe9c4" stroke-width="2" stroke-linecap="round"/>
+    <line x1="230" y1="120" x2="180" y2="99" stroke="#ffe9c4" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  </g>
+
+  <!-- moon halo -->
+  <circle cx="850" cy="250" r="270" fill="url(#moonGlow)"/>
+  <circle cx="850" cy="250" r="128" fill="#ffe9bd" opacity="0.16" filter="url(#bloom)"/>
+  <circle cx="850" cy="250" r="96" fill="url(#moonBody)"/>
+  <g fill="#c9a578" opacity="0.4">
+    <ellipse cx="822" cy="222" rx="16" ry="12"/>
+    <ellipse cx="874" cy="262" rx="10" ry="8"/>
+    <ellipse cx="842" cy="292" rx="20" ry="10"/>
+    <ellipse cx="886" cy="214" rx="7" ry="6"/>
+  </g>
+  <circle cx="850" cy="250" r="96" fill="none" stroke="#fff6dd" stroke-opacity="0.5" stroke-width="1.5"/>
+
+  <!-- birds -->
+  <g fill="none" stroke="#1a1730" stroke-width="3" stroke-linecap="round" opacity="0.85">
+    <path d="M420 250 q12 -10 24 0 q12 -10 24 0"/>
+    <path d="M476 214 q9 -8 18 0 q9 -8 18 0"/>
+    <path d="M380 300 q7 -6 14 0 q7 -6 14 0"/>
+  </g>
+
+  <!-- haze on horizon -->
+  <ellipse cx="720" cy="612" rx="620" ry="120" fill="#e59a7c" opacity="0.16" filter="url(#soft)"/>
+
+  <!-- back dunes -->
+  <path d="M0 596 C 150 548, 290 560, 420 604 C 540 644, 660 646, 790 610 C 930 570, 1060 566, 1200 604 L1200 900 L0 900 Z" fill="url(#duneBack)"/>
+  <path d="M0 596 C 150 548, 290 560, 420 604 C 540 644, 660 646, 790 610" fill="none" stroke="url(#rimLight)" stroke-width="2.5" opacity="0.55"/>
+
+  <!-- mid dunes -->
+  <path d="M0 676 C 120 620, 262 626, 372 672 C 470 714, 560 716, 664 684 C 790 646, 918 642, 1040 680 C 1110 702, 1160 706, 1200 700 L1200 900 L0 900 Z" fill="url(#duneMid)"/>
+  <path d="M0 676 C 120 620, 262 626, 372 672 C 470 714, 560 716, 664 684 C 790 646, 918 642, 1040 680" fill="none" stroke="url(#rimLight)" stroke-width="2" opacity="0.42"/>
+
+  <!-- oasis pond -->
+  <path d="M604 826 C 660 790, 760 776, 872 786 C 990 796, 1090 818, 1148 848 C 1064 882, 930 894, 806 882 C 712 874, 640 856, 604 826 Z" fill="url(#water)"/>
+  <g stroke="#ffd9a2" stroke-linecap="round" opacity="0.42">
+    <path d="M786 806 h84" stroke-width="3"/>
+    <path d="M812 828 h96" stroke-width="2.4"/>
+    <path d="M756 850 h120" stroke-width="2"/>
+    <path d="M832 870 h70" stroke-width="1.7"/>
+    <path d="M700 838 h40" stroke-width="1.6"/>
+    <path d="M1002 842 h64" stroke-width="1.6"/>
+  </g>
+  <path d="M604 826 C 660 790, 760 776, 872 786 C 990 796, 1090 818, 1148 848" fill="none" stroke="#ffd9a2" stroke-width="1.6" opacity="0.5"/>
+
+  <!-- front dune -->
+  <path d="M0 764 C 150 722, 300 738, 430 780 C 540 816, 620 846, 700 852 L700 900 L0 900 Z" fill="url(#duneFront)"/>
+  <path d="M0 764 C 150 722, 300 738, 430 780 C 540 816, 620 846, 700 852" fill="none" stroke="url(#rimLight)" stroke-width="2" opacity="0.4"/>
+  <path d="M1148 848 C 1180 862, 1194 878, 1200 900 L1000 900 C 1050 884, 1102 866, 1148 848 Z" fill="#2c1e3c"/>
+
+  <!-- palm trees -->
+  <g fill="#080b1c" stroke="#080b1c" stroke-linecap="round">
+    <path d="M168 742 C 160 672, 158 604, 176 546" fill="none" stroke-width="12"/>
+    <path d="M176 548 C 128 512, 84 508, 44 526 C 92 520, 136 528, 176 552 Z" stroke="none"/>
+    <path d="M176 548 C 224 500, 276 494, 322 510 C 268 512, 220 528, 178 556 Z" stroke="none"/>
+    <path d="M176 548 C 150 490, 152 444, 176 408 C 184 456, 190 504, 182 552 Z" stroke="none"/>
+    <path d="M176 548 C 210 486, 256 456, 304 450 C 258 472, 216 506, 184 554 Z" stroke="none"/>
+    <path d="M176 548 C 118 490, 76 472, 34 476 C 84 484, 132 510, 172 554 Z" stroke="none"/>
+    <path d="M176 548 C 176 600, 182 642, 196 684" fill="none" stroke-width="9"/>
+    <path d="M176 548 C 160 604, 148 640, 132 676" fill="none" stroke-width="6"/>
+  </g>
+  <g fill="#d99a76" opacity="0.22">
+    <circle cx="176" cy="560" r="4"/>
+    <circle cx="188" cy="568" r="3"/>
+  </g>
+
+  <g fill="#0a0d20" stroke="#0a0d20" stroke-linecap="round" opacity="0.95">
+    <path d="M1086 700 C 1080 650, 1082 616, 1094 588" fill="none" stroke-width="8"/>
+    <path d="M1094 590 C 1060 562, 1032 556, 1004 566 C 1034 568, 1062 578, 1094 594 Z" stroke="none"/>
+    <path d="M1094 590 C 1126 558, 1158 550, 1184 558 C 1156 562, 1124 578, 1096 596 Z" stroke="none"/>
+    <path d="M1094 590 C 1080 550, 1084 522, 1100 500 C 1102 532, 1104 562, 1098 594 Z" stroke="none"/>
+    <path d="M1094 590 C 1112 548, 1142 528, 1170 526 C 1144 540, 1118 562, 1098 594 Z" stroke="none"/>
+    <path d="M1094 590 C 1058 558, 1030 552, 1004 558 C 1032 560, 1062 574, 1092 596 Z" stroke="none"/>
+  </g>
+
+  <!-- foreground ripples -->
+  <g fill="none" stroke="#e9b98e" stroke-width="1.5" opacity="0.18">
+    <path d="M80 812 q40 -12 80 0 q40 12 80 0"/>
+    <path d="M250 860 q40 -12 80 0 q40 12 80 0"/>
+    <path d="M960 812 q40 -12 80 0 q40 12 80 0"/>
+    <path d="M760 892 q40 -12 80 0 q40 12 80 0"/>
+  </g>
+
+  <!-- corner dust / mist -->
+  <ellipse cx="110" cy="790" rx="220" ry="90" fill="#f0a67c" opacity="0.08" filter="url(#soft)"/>
+  <ellipse cx="1090" cy="740" rx="220" ry="100" fill="#8f6da8" opacity="0.1" filter="url(#soft)"/>
+
+  <rect width="1200" height="900" fill="url(#vignette)"/>
+  <rect width="1200" height="900" filter="url(#grain)" opacity="0.055"/>
+</svg>

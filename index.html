@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05070f">
+  <meta name="description" content="تحريك الصورة — لغز صور منزلق من واحة القمر. حرّك القطع وأعد الصورة كاملة في تجربة مكتبية هادئة.">
+  <title>تحريك الصورة · لغز منزلق</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cairo-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/amiri-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <canvas class="ambient" id="ambient" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="تحريك الصورة — الصفحة الرئيسية">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand__text">
+          <strong>تحريك الصورة</strong>
+          <small>IMAGE IN MOTION</small>
+        </span>
+      </a>
+      <div class="topbar__actions">
+        <button class="icon-btn" id="helpBtn" type="button" aria-label="كيف تلعب؟" title="كيف تلعب؟">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.4 8.6a2.7 2.7 0 1 1 4.3 2.2c-.9.6-1.7 1.2-1.7 2.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.1" fill="currentColor"/><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <button class="icon-btn" id="muteBtn" type="button" aria-label="كتم الصوت" aria-pressed="false" title="كتم الصوت">
+          <svg class="icon-sound" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4z" fill="currentColor"/>
+            <path d="M15.4 9.2a4 4 0 0 1 0 5.6M17.8 6.8a7.4 7.4 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4z" fill="currentColor"/>
+            <path d="m15.4 9.6 4.4 4.8M19.8 9.6l-4.4 4.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="intro">
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> لغز صور منزلق · 2D DESKTOP</p>
+        <h1>حرّك القطع،<br><span class="accent">أعِد الصورة.</span></h1>
+        <p class="lede">واحة صحراوية تحت ضوء القمر تقطّعت إلى قطع. أعد ترتيبها قطعةً قطعة حتى تكتمل الصورة وتعود الليلة إلى هدوئها.</p>
+
+        <div class="stats" aria-label="إحصاءات اللعبة">
+          <div class="stat">
+            <span>الحركات</span>
+            <strong id="moves">0</strong>
+          </div>
+          <div class="stat">
+            <span>الوقت</span>
+            <strong id="time">00:00</strong>
+          </div>
+          <div class="stat stat--best">
+            <span>أفضل نتيجة</span>
+            <strong id="best">—</strong>
+          </div>
+        </div>
+
+        <div class="progress">
+          <div class="progress__head">
+            <span>اكتمال الصورة</span>
+            <b id="progressLabel">0%</b>
+          </div>
+          <div class="progress__track" role="progressbar" aria-label="اكتمال الصورة" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+            <i id="progressFill"></i>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" id="difficultyLabel">مستوى الصعوبة</span>
+          <div class="difficulty" id="difficulty" role="group" aria-labelledby="difficultyLabel">
+            <button type="button" data-size="3" aria-pressed="false"><b>سهل</b><small>3 × 3</small></button>
+            <button type="button" data-size="4" aria-pressed="true" class="is-active"><b>متوسط</b><small>4 × 4</small></button>
+            <button type="button" data-size="5" aria-pressed="false"><b>صعب</b><small>5 × 5</small></button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--primary" id="newGame" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11l-2.6-2.6M20 17H9l2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7v4.5M20 17v-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            لعبة جديدة
+          </button>
+          <button class="btn btn--ghost" id="previewBtn" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12S6.2 6.4 12 6.4 21.2 12 21.2 12 17.8 17.6 12 17.6 2.8 12 2.8 12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+            معاينة الصورة
+          </button>
+        </div>
+
+        <p class="tip">
+          <span class="tip__keys" dir="ltr" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></span>
+          تحرّك الفراغ · أو انقر على قطعة مجاورة
+        </p>
+      </div>
+
+      <div class="stage">
+        <div class="stage__meta">
+          <span class="plaque"><i aria-hidden="true">✦</i> واحة القمر <em>MOON OASIS</em></span>
+          <span class="size-badge" id="sizeBadge">4 × 4</span>
+        </div>
+
+        <div class="frame">
+          <i class="corner corner--tl" aria-hidden="true"></i>
+          <i class="corner corner--tr" aria-hidden="true"></i>
+          <i class="corner corner--bl" aria-hidden="true"></i>
+          <i class="corner corner--br" aria-hidden="true"></i>
+
+          <div class="board" id="board" role="application" tabindex="0" aria-label="لوحة لغز الصورة. استخدم الأسهم أو انقر على قطعة مجاورة للفراغ.">
+            <div class="board__ghost" aria-hidden="true"></div>
+            <div class="blank-slot" id="blankSlot" aria-hidden="true"><span>✦</span></div>
+            <div class="tiles" id="tiles"></div>
+            <div class="board__glow" aria-hidden="true"></div>
+
+            <div class="preview" id="preview" hidden>
+              <div class="preview__img" aria-hidden="true"></div>
+              <span class="preview__label">الصورة الكاملة</span>
+            </div>
+
+            <div class="win" id="win" hidden role="dialog" aria-modal="true" aria-labelledby="winTitle">
+              <div class="confetti" id="confetti" aria-hidden="true"></div>
+              <div class="win__card">
+                <span class="win__emblem" aria-hidden="true">✦</span>
+                <p class="win__eyebrow">اكتملت الصورة</p>
+                <h2 id="winTitle">أحسنت!</h2>
+                <p class="win__note" id="winNote">عادت واحة القمر إلى كمالها.</p>
+                <div class="win__stats">
+                  <div><span>الحركات</span><strong id="winMoves">0</strong></div>
+                  <div><span>الوقت</span><strong id="winTime">00:00</strong></div>
+                </div>
+                <div class="win__badge" id="winBadge" hidden>✦ رقم قياسي جديد</div>
+                <div class="win__actions">
+                  <button class="btn btn--primary" id="winPlay" type="button">لعبة جديدة</button>
+                  <button class="btn btn--ghost" id="winPreview" type="button">معاينة الصورة</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="stage__hint" id="stageHint">انقر على القطعة المجاورة للفراغ لتحريكها بسلاسة.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>لغز مصوّر يعمل بالكامل داخل المتصفح</span>
+      <span class="footer__dot" aria-hidden="true"></span>
+      <span>خذ وقتك · TAKE YOUR TIME</span>
+    </footer>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+  <dialog class="dialog" id="helpDialog" aria-labelledby="helpTitle">
+    <div class="dialog__head">
+      <span class="dialog__icon" aria-hidden="true">✦</span>
+      <div>
+        <p class="eyebrow">دليل سريع</p>
+        <h2 id="helpTitle">كيف تلعب؟</h2>
+      </div>
+      <button class="icon-btn dialog__close" id="helpClose" type="button" aria-label="إغلاق">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <p class="dialog__lede">الهدف بسيط: أعد صورة الواحة إلى حالتها الأصلية بتحريك القطع إلى الفراغ.</p>
+    <ol class="dialog__steps">
+      <li><b>انقر</b> على أي قطعة مجاورة للفراغ لتنزلق إليه.</li>
+      <li>استخدم <b>الأسهم</b> أو <b>WASD</b> لتحريك الفراغ نفسه.</li>
+      <li>راقب الحركات والوقت، وحاول تحطيم أفضل نتيجة لكل مستوى.</li>
+    </ol>
+    <div class="dialog__keys">
+      <span><kbd>P</kbd> معاينة</span>
+      <span><kbd>N</kbd> لعبة جديدة</span>
+      <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> الصعوبة</span>
+    </div>
+    <p class="dialog__quote">«لا تحتاج إلى حل سريع؛ خذ وقتك واستمتع بالمشهد.»</p>
+    <button class="btn btn--primary dialog__done" id="helpDone" type="button">فهمت، لنبدأ</button>
+  </dialog>
+
+  <noscript>
+    <div class="noscript">هذه اللعبة تحتاج إلى JavaScript. يرجى تفعيله في المتصفح.</div>
+  </noscript>
+</body>
+</html>
